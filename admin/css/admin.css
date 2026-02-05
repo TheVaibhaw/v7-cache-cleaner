@@ -1,0 +1,28 @@
+.v7-clear-cache-btn .ab-icon {
+	margin-right: 5px;
+}
+
+.v7-clear-cache-btn .ab-icon:before {
+	top: 2px;
+}
+
+.v7-cache-status {
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	padding: 15px 20px;
+	margin: 20px 0;
+	border-radius: 4px;
+}
+
+.v7-cache-status h2 {
+	margin-top: 0;
+}
+
+#v7-settings-clear {
+	margin-top: 10px;
+}
+
+.v7-clearing {
+	opacity: 0.7;
+	pointer-events: none;
+}
