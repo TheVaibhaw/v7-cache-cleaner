@@ -40,7 +40,8 @@ class V7_Cache_Cleaner {
 		$plugin_settings = new V7_Cache_Cleaner_Settings( $this->plugin_name, $this->version );
 
 		$this->loader->add_action( 'admin_bar_menu', $plugin_admin, 'add_admin_bar_button', 100 );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_admin_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_admin, 'enqueue_frontend_styles' );
 		$this->loader->add_action( 'wp_ajax_v7_clear_cache', $plugin_admin, 'ajax_clear_cache' );
 		$this->loader->add_action( 'admin_notices', $plugin_admin, 'show_cache_cleared_notice' );
 		$this->loader->add_filter( 'plugin_action_links_v7-cache-cleaner/v7-cache-cleaner.php', $plugin_settings, 'add_plugin_action_links' );

@@ -56,6 +56,8 @@ class V7_Cache_Cleaner_Settings {
 
 	public function render_checkbox( $args ) {
 		$value = get_option( $args['id'], '1' );
+		// Hidden field ensures unchecked state saves as '0'
+		echo '<input type="hidden" name="' . esc_attr( $args['id'] ) . '" value="0">';
 		echo '<input type="checkbox" name="' . esc_attr( $args['id'] ) . '" value="1" ' . checked( $value, '1', false ) . '>';
 	}
 

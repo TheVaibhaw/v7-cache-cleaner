@@ -19,11 +19,23 @@ class V7_Cache_Cleaner_Admin {
 		$this->version     = $version;
 	}
 
-	public function enqueue_styles() {
+	public function enqueue_admin_styles() {
+		$this->enqueue_assets();
+	}
+
+	public function enqueue_frontend_styles() {
+		if ( is_admin_bar_showing() && current_user_can( 'manage_options' ) ) {
+			$this->enqueue_assets();
+		}
+	}
+
+	private function enqueue_assets() {
+		wp_enqueue_style( 'dashicons' );
+
 		wp_enqueue_style(
 			$this->plugin_name . '-admin',
 			V7_CACHE_URL . 'admin/css/admin.css',
-			array(),
+			array( 'dashicons' ),
 			$this->version
 		);
 
@@ -39,10 +51,10 @@ class V7_Cache_Cleaner_Admin {
 			$this->plugin_name . '-admin',
 			'v7CacheAdmin',
 			array(
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'v7_clear_cache_nonce' ),
+				'ajaxUrl'  => admin_url( 'admin-ajax.php' ),
+				'nonce'    => wp_create_nonce( 'v7_clear_cache_nonce' ),
 				'clearing' => __( 'Clearing...', 'v7-cache-cleaner' ),
-				'cleared' => __( 'Cache Cleared!', 'v7-cache-cleaner' ),
+				'cleared'  => __( 'Cache Cleared!', 'v7-cache-cleaner' ),
 			)
 		);
 	}

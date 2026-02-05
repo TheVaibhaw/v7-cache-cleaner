@@ -1,11 +1,25 @@
-.v7-clear-cache-btn .ab-icon {
+/* Admin bar button styling */
+#wp-admin-bar-v7-clear-cache > a {
+	cursor: pointer;
+}
+
+#wp-admin-bar-v7-clear-cache .ab-icon {
 	margin-right: 5px;
 }
 
-.v7-clear-cache-btn .ab-icon:before {
-	top: 2px;
+#wp-admin-bar-v7-clear-cache .ab-icon.dashicons {
+	font-family: dashicons;
+	font-size: 20px;
+	line-height: 1;
+	position: relative;
+	top: 3px;
 }
 
+#wp-admin-bar-v7-clear-cache .ab-icon.dashicons:before {
+	content: "\f182";
+}
+
+/* Settings page styling */
 .v7-cache-status {
 	background: #fff;
 	border: 1px solid #ccd0d4;
@@ -26,3 +40,4 @@
 	opacity: 0.7;
 	pointer-events: none;
 }
+
